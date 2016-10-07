@@ -1,0 +1,16 @@
+{
+  "name": "selfbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "start": "pm2 start bot.js --name selfbot",
+    "stop": "pm2 stop selfbot && pm2 delete selfbot"
+  },
+  "author": "vzwGrey",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:hydrabolt/discord.js#indev",
+    "performance-now": "^0.2.0"
+  }
+}
