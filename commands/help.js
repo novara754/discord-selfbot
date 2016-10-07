@@ -8,6 +8,12 @@ module.exports = {
 
   exec: (client, msg, [ command_name ]) => {
     let command = client.commands.get(command_name);
-    msg.editCode('ini', `${command_name}${command.help.usage ? ' ' + command.help.usage : ''}: ${command.help.desc}\nAliases: ${command.help.alias.replace(/ /g, ', ')}`);
+    let aliases = `\nAliases: ${command.help.alias.replace(/ /g, ', ')}.`;
+    msg.editCode('asciidoc', [
+      `= ${command.help.name} =\n`,
+      `Usage:: ${command.help.name} ${command.help.usage}`,
+      `Description:: ${command.help.desc}`,
+      `${command.help.alias ? `Aliases:: ${command.help.alias.split(' ').join(', ')}` : ''}`
+    ]);
   }
 }

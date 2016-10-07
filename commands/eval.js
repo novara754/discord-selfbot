@@ -4,7 +4,7 @@ module.exports = {
   help: {
     name: 'eval',
     desc: 'Runs a JavaScript snippet',
-    usage: '<js snipped>',
+    usage: '<js snippet>',
     alias: 'e'
   },
 

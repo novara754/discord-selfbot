@@ -8,11 +8,12 @@ module.exports = {
 
   exec: (client, msg, _) => {
     let list = '';
+    let aliases;
 
     client.commands.forEach(command => {
-      list += `${command.help.name}${command.help.usage ? ' ' + command.help.usage : ''}: ${command.help.desc}. Aliases: ${command.help.alias.replace(/ /g, ', ')}.\n`;
+      list += `${command.help.name}:: ${command.help.desc}\n`;
     });
 
-    msg.editCode('asciidoc', `= Commands =\n\n${list}`);
+    msg.editCode('asciidoc', `= Commands =\n${list}`);
   }
 }
