@@ -3,7 +3,7 @@ const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const fs = require('fs');
 const { prefix, token } = require('./conf');
-const macros = require('./commands/macros');
+const macros = require('./macros');
 
 /* Credits to https://github.com/eslachance for this easy but amazing command handler! */
 fs.readdir('./commands/', (error, files) => {

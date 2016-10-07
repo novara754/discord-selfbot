@@ -7,9 +7,9 @@ module.exports = {
   },
 
   exec: (client, msg, [name, content]) => {
-    let current_macros = require('./macros');
+    let current_macros = require('../macros.json');
     current_macros[name] = content;
-    require('fs').writeFile('./commands/macros.json', JSON.stringify(current_macros), (error) => {
+    require('fs').writeFile('./macros.json', JSON.stringify(current_macros), (error) => {
       if(error) msg.edit(`\`SELF:\` ERROR when trying to save macro '${name}': ${error}`).then(msg => msg.delete(3000));
       msg.edit(`\`SELF:\` Macro '${name}' added!`).then(msg => msg.delete(3000));
     });
