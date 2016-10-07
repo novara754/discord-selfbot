@@ -6,7 +6,9 @@ module.exports = {
     alias: ''
   },
 
-  exec: (client, msg, [name, content]) => {
+  exec: (client, msg, params) => {
+    let name = params[0];
+    let content = params.slice(1).join(' ');
     let current_macros = require('../macros.json');
     current_macros[name] = content;
     require('fs').writeFile('./macros.json', JSON.stringify(current_macros), (error) => {
