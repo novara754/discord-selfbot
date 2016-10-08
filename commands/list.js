@@ -3,7 +3,7 @@ module.exports = {
     name: 'list',
     desc: 'Lists all commands',
     usage: '',
-    alias: 'l'
+    aliases: ['l']
   },
 
   exec: (client, msg, _) => {

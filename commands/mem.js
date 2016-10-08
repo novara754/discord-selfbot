@@ -3,7 +3,7 @@ module.exports = {
     name: 'mem',
     desc: 'Gets memory usage of bot',
     usage: '',
-    alias: ''
+    aliases: []
   },
 
   exec: (_, msg, __) => {

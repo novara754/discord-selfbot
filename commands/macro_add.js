@@ -3,7 +3,7 @@ module.exports = {
     name: 'madd',
     desc: 'Adds a macro',
     usage: '<macro_name> <content>',
-    alias: ''
+    aliases: []
   },
 
   exec: (client, msg, params) => {

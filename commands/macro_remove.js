@@ -3,7 +3,7 @@ module.exports = {
     name: 'mdel',
     desc: 'Removes a macro',
     usage: '<macro_name>',
-    alias: 'mrem'
+    aliases: ['mrem']
   },
 
   exec: (client, msg, [name]) => {

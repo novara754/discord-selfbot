@@ -1,9 +1,9 @@
 module.exports = {
   help: {
-  name: 'restart',
-  desc: 'Restarts the bot',
-  usage: '',
-  alias: 'rs'
+    name: 'restart',
+    desc: 'Restarts the bot',
+    usage: '',
+    aliases: ['rs']
   },
 
   exec: (_, msg, __) => {

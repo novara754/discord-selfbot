@@ -5,7 +5,7 @@ module.exports = {
     name: 'eval',
     desc: 'Runs a JavaScript snippet',
     usage: '<js snippet>',
-    alias: 'e'
+    aliases: ['e']
   },
 
   exec: (client, msg, params) => {
@@ -22,10 +22,10 @@ module.exports = {
 
       output = output.replace(client.token, '[token redacted]');
 
-      msg.edit(`***\`Input\`*** \`\`\`js\n${input}\n\`\`\` ***\`Output\`***\t:stopwatch:=\`${(now() - time).toFixed(3)}ms\` \`\`\`js\n${output}\n\`\`\``).catch(console.error);
+      msg.edit(`***\`Input\`*** \`\`\`js\n${input}\n\`\`\` ***\`Output\`***\`\`\`js\n${output}\n\`\`\``).catch(console.error);
 
     } catch (error) {
-      msg.edit(`***\`Input\`*** \`\`\`js\n${input}\n\`\`\` ***\`Error\`***\t:stopwatch:=\`${(now() - time).toFixed(3)}ms\` \`\`\`js\n${error}\n\`\`\``).catch(console.error);
+      msg.edit(`***\`Input\`*** \`\`\`js\n${input}\n\`\`\` ***\`Error\`***\`\`\`js\n${error}\n\`\`\``).catch(console.error);
     }
   }
 }

@@ -3,7 +3,7 @@ module.exports = {
     name: 'roll',
     desc: 'Rolls an x amount of y-faced dice',
     usage: '<question>',
-    alias: ''
+    aliases: []
   },
 
   exec: (_, msg, params) => {

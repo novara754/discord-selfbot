@@ -3,7 +3,7 @@ module.exports = {
     name: 'prune',
     desc: 'Clears an x amount of the last messages (max. 100)',
     usage: '<amount>',
-    alias: 'clear p c'
+    aliases: ['clear', 'p', 'c']
   },
 
   exec: (client, msg, params) => {

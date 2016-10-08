@@ -3,7 +3,7 @@ module.exports = {
     name: 'help',
     desc: 'Displays information about command',
     usage: '<command name>',
-    alias: 'h'
+    aliases: ['h']
   },
 
   exec: (client, msg, [ command_name ]) => {
@@ -13,7 +13,7 @@ module.exports = {
       `= ${command.help.name} =\n`,
       `Usage:: ${command.help.name} ${command.help.usage}`,
       `Description:: ${command.help.desc}`,
-      `${command.help.alias ? `Aliases:: ${command.help.alias.split(' ').join(', ')}` : ''}`
+      `${command.help.alias ? `Aliases:: ${command.help.alias.join(', ')}` : ''}`
     ]);
   }
 }

@@ -3,7 +3,7 @@ module.exports = {
     name: 'reload',
     desc: 'Reloads a specified command',
     usage: '<command name>',
-    alias: 'rl'
+    aliases: ['rl']
   },
 
   exec: (client, msg, [ command ]) => {

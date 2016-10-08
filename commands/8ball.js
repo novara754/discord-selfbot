@@ -3,7 +3,7 @@ module.exports = {
     name: '8ball',
     desc: 'Answers a yes-no question',
     usage: '<question>',
-    alias: '8'
+    aliases: ['8']
   },
   
   exec: (_, msg, params) => {

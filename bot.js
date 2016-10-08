@@ -1,6 +1,7 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-client.commands = new Discord.Collection();
+const { Client, Collection } = require('discord.js');
+const client = new Client();
+client.commands = new Collection();
+client.aliases = new Collection();
 const fs = require('fs');
 const { prefix, token } = require('./conf');
 const macros = require('./macros');
@@ -14,19 +15,13 @@ fs.readdir('./commands/', (error, files) => {
 
     let command = require(`./commands/${file}`);
     client.commands.set(command.help.name, command);
+
+    command.help.aliases.forEach(alias => {
+      client.aliases.set(alias, command.help.name);
+    });
   });
 });
 /* ---------- */
-
-const findByAlias = (commands, al) => {
-  let searchedCommand = null;
-  
-  commands.forEach(command => {
-    if(command.help.alias.match(new RegExp(`\\b${al}\\b`))) searchedCommand = command;
-  });
-
-  return searchedCommand;
-}
 
 client.on('ready', () => {
   console.log('Selfbot ready...');
@@ -53,8 +48,8 @@ client.on('message', msg => {
 
   if(client.commands.has(command_name)) {
     client.commands.get(command_name).exec(client, msg, params);
-  } else if(findByAlias(client.commands, command_name)) {
-    findByAlias(client.commands, command_name).exec(client, msg, params);
+  } else if(client.aliases.has(command_name)) {
+    client.commands.get(client.aliases.get(command_name)).exec(client, msg, params);
   }
 });
 
