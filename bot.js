@@ -30,14 +30,6 @@ client.on('ready', () => {
 client.on('message', msg => {
   if(msg.author !== client.user) return;
 
-  if(matches = msg.content.match(/\[\-\w+\]/g)) {
-    matches.forEach(match => {
-      let macro = /(w+)/.exec(match)[1]
-      let new_msg = msg.content.replace(match, macros[macro]);
-      msg.edit(new_msg);
-    });
-  }
-
   if(!msg.content.startsWith(prefix)) return;
 
   let command = msg.content.replace(prefix, '');
