@@ -30,10 +30,6 @@ client.on('ready', () => {
 client.on('message', msg => {
   if(msg.author !== client.user) return;
 
-  /*msg.edit(msg.content.replace(/\[\-(\w+)\]/g, (_, m) => {
-    if(macros.hasOwnProperty(m)) macros[m];
-  }));*/
-
   let match = /\[\-(\w+)\]/g.exec(msg.content);
 
   if(match && macros.hasOwnProperty(match[1])) {
