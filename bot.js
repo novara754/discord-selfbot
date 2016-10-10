@@ -30,10 +30,12 @@ client.on('ready', () => {
 client.on('message', msg => {
   if(msg.author !== client.user) return;
 
-  let match = /\[\-(\w+)\]/g.exec(msg.content);
-
-  if(match && macros.hasOwnProperty(match[1])) {
-    msg.edit(msg.content.replace(`[-${match[1]}]`, macros[match[1]]));
+  if(matches = msg.content.match(/\[\-\w+\]/g)) {
+    matches.forEach(match => {
+      let macro = /(w+)/.exec(match)[1]
+      let new_msg = msg.content.replace(match, macros[macro]);
+      msg.edit(new_msg);
+    });
   }
 
   if(!msg.content.startsWith(prefix)) return;
