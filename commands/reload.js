@@ -7,7 +7,9 @@ module.exports = {
   },
 
   exec: (client, msg, [ command ]) => {
-    msg.edit(`\`SELF:\` Reloading ${command}.js`);
+    msg.edit(`\`SELF:\` Reloading ${command}.js`).then(msg => {
+      msg.delete(1000);
+    });
     client.commands.delete(command);
     delete require.cache[require.resolve(`./${command}`)];
     client.commands.set(command, require(`./${command}`));
