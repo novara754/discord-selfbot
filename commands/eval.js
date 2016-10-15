@@ -22,10 +22,10 @@ module.exports = {
 
       output = output.replace(client.token, '[token redacted]');
 
-      msg.edit(`***\`Input\`*** \`\`\`js\n${input}\n\`\`\` ***\`Output\`***\`\`\`js\n${output}\n\`\`\``).catch(console.error);
+      msg.edit(`***\`Input\`*** \`\`\`js\n${input}\n\`\`\`\n***\`Output\`*** \`\`\`js\n${output}\n\`\`\``).catch(console.error);
 
     } catch (error) {
-      msg.edit(`***\`Input\`*** \`\`\`js\n${input}\n\`\`\` ***\`Error\`***\`\`\`js\n${error}\n\`\`\``).catch(console.error);
+      msg.edit(`***\`Input\`*** \`\`\`js\n${input}\n\`\`\`\n***\`Error\`*** \`\`\`js\n${error}\n\`\`\``).catch(console.error);
     }
   }
 }
