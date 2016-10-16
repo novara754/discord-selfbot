@@ -13,14 +13,14 @@ module.exports = {
     let input = params.join(' ');
 
     try {
-      let message = msg;
+      let message = msg, self = client, bot = client;
       let output = eval(input.replace(/\r?\n|\r/g, ' '));
 
       if(typeof output != 'string') {
         output = require('util').inspect(output);
       }
 
-      output = output.replace(client.token, '[token redacted]');
+      output = output.replace(client.token, '[token redacted]').replace(client.user.email, '[email redacted]');
 
       msg.edit(`***\`Input\`*** \`\`\`js\n${input}\n\`\`\`\n***\`Output\`*** \`\`\`js\n${output}\n\`\`\``).catch(console.error);
 
