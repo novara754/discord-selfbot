@@ -1,5 +1,5 @@
 const { Client, Collection } = require('discord.js');
-const client = new Client();
+const client = new Client({ fetchAllMembers: true });
 client.commands = new Collection();
 client.aliases = new Collection();
 const fs = require('fs');
