@@ -12,4 +12,4 @@ module.exports = {
     let answer = answers[Math.floor(Math.random() * answers.length)];
     msg.edit(`\`\`\`apache\nQ: ${question}\nA: ${answer}\n\`\`\``).catch(console.error);
   }
-}
+};
