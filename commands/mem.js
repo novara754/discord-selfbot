@@ -7,7 +7,7 @@ module.exports = {
   },
 
   exec: (_, msg, __) => {
-    let mem_usage = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(4);
-    msg.edit(`\`SELF:\` Memory usage is at ${(mem_usage / (16 * 1024) * 100).toPrecision(2)}% (${mem_usage} mb)`)
+    let mem_usage = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(0);
+    msg.edit(`\`SELF:\` Memory usage is at ${(mem_usage / (16 * 1024) * 100).toPrecision(2)}% (${mem_usage} mb)`);
   }
 };
