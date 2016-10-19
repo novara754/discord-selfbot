@@ -8,12 +8,12 @@ module.exports = {
 
   exec: (_, msg, [name]) => {
     let tags = require('../tags.json');
-    let tag;
+    let tag = tags.find(t => t.name == name);
 
-    if(tag = tags.find(t => t.name == name)) {
+    if(tag) {
       msg.edit(tag.content);
     }
 
     delete require.cache[require.resolve('../tags.json')];
   }
-}
+};

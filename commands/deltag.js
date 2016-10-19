@@ -32,4 +32,4 @@ module.exports = {
     });
     delete require.cache[require.resolve('../tags.json')];
   }
-}
+};

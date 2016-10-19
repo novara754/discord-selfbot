@@ -16,4 +16,4 @@ module.exports = {
       msg.edit(`\`SELF:\` Macro '${name}' added!`).then(msg => msg.delete(3000));
     });
   }
-}
+};

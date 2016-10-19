@@ -1,5 +1,3 @@
-const now = require('performance-now');
-
 module.exports = {
   help: {
     name: 'eval',
@@ -9,7 +7,6 @@ module.exports = {
   },
 
   exec: (client, msg, params) => {
-    let time = now();
     let input = params.join(' ');
 
     try {
@@ -28,4 +25,4 @@ module.exports = {
       msg.edit(`***\`Input\`*** \`\`\`js\n${input}\n\`\`\`\n***\`Error\`*** \`\`\`js\n${error}\n\`\`\``).catch(console.error);
     }
   }
-}
+};

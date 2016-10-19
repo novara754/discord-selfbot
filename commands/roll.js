@@ -19,4 +19,4 @@ module.exports = {
 
     msg.editCode('xl', results.join(' ')).catch(console.error);
   }
-}
+};

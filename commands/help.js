@@ -16,4 +16,4 @@ module.exports = {
       `${command.help.aliases.length > 0 ? aliases : ''}`
     ]);
   }
-}
+};

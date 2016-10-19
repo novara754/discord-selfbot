@@ -14,4 +14,4 @@ module.exports = {
     delete require.cache[require.resolve(`./${command}`)];
     client.commands.set(command, require(`./${command}`));
   }
-}
+};
