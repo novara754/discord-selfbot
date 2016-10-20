@@ -11,8 +11,8 @@ module.exports = {
       msg.delete(1000);
     });
     client.commands.delete(command_name);
-    delete require.cache[require.resolve(`./${command}`)];
-    let command = require(`./${command}`);
+    delete require.cache[require.resolve(`./${command_name}`)];
+    let command = require(`./${command_name}`);
     client.commands.set(command_name, command);
     command.help.aliases.forEach(alias => {
       client.aliases.set(alias, command_name);
