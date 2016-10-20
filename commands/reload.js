@@ -6,12 +6,16 @@ module.exports = {
     aliases: ['rl']
   },
 
-  exec: (client, msg, [ command ]) => {
-    msg.edit(`\`SELF:\` Reloading ${command}.js`).then(msg => {
+  exec: (client, msg, [ command_name ]) => {
+    msg.edit(`\`SELF:\` Reloading ${command_name}.js`).then(msg => {
       msg.delete(1000);
     });
-    client.commands.delete(command);
+    client.commands.delete(command_name);
     delete require.cache[require.resolve(`./${command}`)];
-    client.commands.set(command, require(`./${command}`));
+    let command = require(`./${command}`);
+    client.commands.set(command_name, command);
+    command.help.aliases.forEach(alias => {
+      client.aliases.set(alias, command_name);
+    });    
   }
 };
