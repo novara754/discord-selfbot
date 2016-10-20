@@ -1,39 +1,46 @@
 function rpn(input) {
-  var ar = input.split(/\s+/), st = [], token, result;
+  var ar = input.split(/\s+/), stack = [], token, result;
   while(token = ar.shift()) { 
-    if (token == +token) { // numeric
-      st.push(token);
+    if(token == +token) { // numeric
+      stack.push(token);
     } else {
       switch(token) {
         case '+':
         case '-':
         case '*':
         case '/': {
-          let n2 = st.pop(), n1 = st.pop();
-          result = eval(n1 + token + ' ' + n2);
+          let number2 = stack.pop(), number1 = stack.pop();
+          result = eval(number1 + token + ' ' + number2);
           break;
         }
         case '^': {
-          let n2 = st.pop(), n1 = st.pop();
-          result = Math.pow(n1, n2);
-          break;
-        }
-        case 'ln': {
-          let n1 = st.pop();
-          result = Math.log(n1);
+          let number2 = stack.pop(), number1 = stack.pop();
+          result = Math.pow(number1, number2);
           break;
         }
         case 'log': {
-          let n2 = st.pop(), n1 = st.pop();
-          result = Math.log(n2) / Math.log(n1);
+          let number2 = stack.pop(), number1 = stack.pop();
+          result = Math.log(number2) / Math.log(number1);
+          break;
+        }
+        case 'ln': {
+          let number1 = stack.pop();
+          result = Math.log(number1);
+          break;
+        }
+        case 'sin': case 'asin':
+        case 'cos': case 'acos':
+        case 'tan': case 'atan': {
+          let number1 = stack.pop();
+          result = Math[token](number1);
           break;
         }
       }
 
-      st.push(result);
+      stack.push(result);
     }
   }
-  return st.pop();
+  return stack.pop();
 }
 
 module.exports = {
@@ -61,8 +68,6 @@ module.exports = {
     Object.keys(vars).forEach(variable => {
       equation = equation.replace(variable, vars[variable]);
     });
-
-    console.log(equation);
 
     msg.editCode('xl', `${lines.join('\n')} = ${rpn(equation)}`);
   }
