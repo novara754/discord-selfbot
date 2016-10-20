@@ -18,9 +18,14 @@ function rpn(input) {
           result = Math.pow(n1, n2);
           break;
         }
-        case 'log': {
+        case 'ln': {
           let n1 = st.pop();
           result = Math.log(n1);
+          break;
+        }
+        case 'log': {
+          let n2 = st.pop(), n1 = st.pop();
+          result = Math.log(n2) / Math.log(n1);
           break;
         }
       }
@@ -40,8 +45,25 @@ module.exports = {
   },
 
   exec: (client, msg, params) => {
-    let equation = params.join(' ').replace('e', Math.E).replace('pi', Math.PI);
-    msg.edit(`String: ${params.join(' ')}
-\`\`\`xl\n${equation} = ${rpn(equation)}\`\`\``);
+    let vars = {
+      'e': Math.E,
+      'pi': Math.PI
+    };
+    let lines = params.join(' ').split('\n');
+    let equation = lines[lines.length-1];
+
+    lines.slice(0, lines.length - 1).forEach(line => {
+      let variable = line.replace(/ /g, '').split('=')[0];
+      let value = parseInt(line.replace(' ', '').split('=')[1]);
+      vars[variable] = value;
+    });
+
+    Object.keys(vars).forEach(variable => {
+      equation = equation.replace(variable, vars[variable]);
+    });
+
+    console.log(equation);
+
+    msg.editCode('xl', `${lines.join('\n')} = ${rpn(equation)}`);
   }
 };
