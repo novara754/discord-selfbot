@@ -27,7 +27,9 @@ module.exports = {
         msg.edit('`Self:` An error occured when trying to delete tag.');
         console.error(error);
       } else {
-        msg.edit(`\`Self:\` Succesfully deleted tag ${name}`);
+        msg.edit(`\`Self:\` Succesfully deleted tag ${name}`).then(m => {
+          m.delete(500);
+        });
       }
     });
     delete require.cache[require.resolve('../tags.json')];

@@ -20,7 +20,9 @@ module.exports = {
         msg.edit('`Self:` An error occured when trying to create tag.');
         console.error(error);
       } else {
-        msg.edit(`\`Self:\` Succesfully created tag ${name}`);
+        msg.edit(`\`Self:\` Succesfully created tag ${name}`).then(m => {
+          m.delete(500);
+        });
       }
     });
     delete require.cache[require.resolve('../tags.json')];
