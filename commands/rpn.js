@@ -35,6 +35,16 @@ function rpn(input) {
           result = Math[token](number1);
           break;
         }
+        case 'root': {
+          let number2 = stack.pop(), number1 = stack.pop();
+          result = Math.pow(number1, 1 / number2);
+          break;
+        }
+        case 'sqrt': {
+          let number1 = stack.pop();
+          result = Math.sqrt(number1);
+          break;
+        }
       }
 
       stack.push(result);
@@ -66,7 +76,7 @@ module.exports = {
     });
 
     Object.keys(vars).forEach(variable => {
-      equation = equation.replace(variable, vars[variable]);
+      equation = equation.replace(new RegExp(variable, 'g'), vars[variable]);
     });
 
     msg.editCode('xl', `${lines.join('\n')} = ${rpn(equation)}`);
