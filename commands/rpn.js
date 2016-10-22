@@ -45,6 +45,13 @@ function rpn(input) {
           result = Math.sqrt(number1);
           break;
         }
+        case 'sum': {
+          result = stack.reduce((sum, next) => sum + parseInt(next), 0);
+          break;
+        }
+        case 'prod': {
+          result = stack.reduce((sum, next) => sum * parseInt(next), 1);
+        }
       }
 
       stack.push(result);
