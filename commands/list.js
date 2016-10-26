@@ -8,11 +8,13 @@ module.exports = {
 
   exec: (client, msg, _) => {
     let list = '';
-    
+    let commandNames = Array.from(client.commands.keys());
+    let longest = commandNames.reduce((longest, str) => Math.max(longest, str.length), 0);
+
     client.commands.forEach(command => {
-      list += `${command.help.name}:: ${command.help.desc}\n`;
+      list += `${command.help.name}::${' '.repeat(longest - command.help.name.length)} ${command.help.desc}\n`;
     });
 
-    msg.editCode('asciidoc', `= Commands =\n${list}`);
+    msg.editCode('asciidoc', `= Commands =\n\n${list}`);
   }
 };
