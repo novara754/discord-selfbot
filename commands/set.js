@@ -29,16 +29,16 @@ module.exports = {
         }).catch(console.error);
       }
     } else if(mode == 'nickname') {
-      let client_member = msg.guild.member(client.user);
+      let clientMember = msg.guild.member(client.user);
       
       if(value.length == 0) {
-        client_member.setNickname('').then(_ => {
+        clientMember.setNickname('').then(_ => {
           return msg.edit(`\`SELF:\` Reset nickname`);
         }).then(m => {
           m.delete(500);
         }).catch(console.error);
       } else {
-        client_member.setNickname(value.join(' ')).then(member => {
+        clientMember.setNickname(value.join(' ')).then(member => {
           return msg.edit(`\`SELF:\` Set nickname to ${member.nickname}`);
         }).then(m => {
           m.delete(500);

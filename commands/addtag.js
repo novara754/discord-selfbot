@@ -10,12 +10,12 @@ module.exports = {
 
   exec: (_, msg, [name, ...content]) => {
     content = content.join(' ');
-    let curr_tags = require('../tags.json');
-    curr_tags.push({
+    let currTags = require('../tags.json');
+    currTags.push({
       name,
       content
     });
-    fs.writeFile('./tags.json', JSON.stringify(curr_tags), error => {
+    fs.writeFile('./tags.json', JSON.stringify(currTags), error => {
       if(error) {
         msg.edit('`Self:` An error occured when trying to create tag.');
         console.error(error);

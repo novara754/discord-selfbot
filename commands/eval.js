@@ -13,7 +13,7 @@ module.exports = {
       let output = eval(input.replace(/\r?\n|\r/g, ' '));
 
       if(typeof output != 'string') {
-        output = require('util').inspect(output);
+        output = require('util').inspect(output, { depth: 1 });
       }
 
       output = output.replace(client.token, '[token redacted]').replace(client.user.email, '[email redacted]');
