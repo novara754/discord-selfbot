@@ -36,9 +36,9 @@ delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
 
-"discord.js@github:hydrabolt/discord.js#indev":
+discord.js@hydrabolt/discord.js:
   version "10.0.0"
-  resolved "https://codeload.github.com/hydrabolt/discord.js/tar.gz/62cfa10ac5a73920ed1fd3057e309b4bc5d17035"
+  resolved "https://codeload.github.com/hydrabolt/discord.js/tar.gz/1fc9676ba59018ce99fd6f41ab91910cf659bff1"
   dependencies:
     superagent "^2.2.0"
     tweetnacl "^0.14.3"
