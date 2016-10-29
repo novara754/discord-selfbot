@@ -1,5 +1,10 @@
 const { Client, Collection } = require('discord.js');
-const client = new Client({ fetchAllMembers: true });
+const client = new Client({
+  fetchAllMembers: true,
+  disabledEvents: [
+    'channelCreate','channelDelete','channelPinsUpdate','channelUpdate','debug','error','guildBanAdd','guildBanRemove','guildEmojiCreate','guildEmojiDelete','guildEmojiUpdate','guildMemberAdd','guildMemberAvailable','guildMemberRemove','guildMembersChunk','guildMemberSpeaking','guildMemberUpdate','guildUnavailable','guildUpdate','messageDelete','messageDeleteBulk','messageUpdate','presenceUpdate','reconnecting','roleCreate','roleDelete','roleUpdate','typingStart','typingStop','userUpdate','voiceStateUpdate','warn'
+  ]
+});
 client.commands = new Collection();
 client.aliases = new Collection();
 client.conf = require('./conf');
