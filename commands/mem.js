@@ -8,6 +8,6 @@ module.exports = {
 
   exec: (_, msg, __) => {
     let memUsage = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(0);
-    msg.edit(`\`SELF:\` Memory usage is at ${(memUsage / (16 * 1024) * 100).toPrecision(2)}% (${memUsage} mb)`);
+    msg.edit(`\`SELF:\` Memory usage is at ${memUsage}mb`);
   }
 };
