@@ -10,6 +10,6 @@
   "author": "vzwGrey",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "hydrabolt/discord.js"
+    "discord.js": "hydrabolt/discord.js#indev"
   }
 }
