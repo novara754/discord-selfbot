@@ -1,6 +1,6 @@
 function rpn(input) {
   var ar = input.split(/\s+/), stack = [], token, result;
-  while(token = ar.shift()) { 
+  while(token = ar.shift()) {
     if(token == +token) { // numeric
       stack.push(token);
     } else {
@@ -46,11 +46,11 @@ function rpn(input) {
           break;
         }
         case 'sum': {
-          result = stack.reduce((sum, next) => sum + parseInt(next), 0);
+          result = stack.reduce((sum, next) => { return sum + parseInt(next); }, 0);
           break;
         }
         case 'prod': {
-          result = stack.reduce((sum, next) => sum * parseInt(next), 1);
+          result = stack.reduce((sum, next) => { return sum * parseInt(next); }, 1);
         }
       }
 
