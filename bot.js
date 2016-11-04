@@ -2,7 +2,7 @@ const { Client, Collection } = require('discord.js');
 const client = new Client({
   fetchAllMembers: true,
   disabledEvents: [
-    'channelCreate','channelDelete','channelPinsUpdate','channelUpdate','debug','error','guildBanAdd','guildBanRemove','guildEmojiCreate','guildEmojiDelete','guildEmojiUpdate','guildMemberAdd','guildMemberAvailable','guildMemberRemove','guildMembersChunk','guildMemberSpeaking','guildMemberUpdate','guildUnavailable','guildUpdate','messageDelete','messageDeleteBulk','messageUpdate','presenceUpdate','reconnecting','roleCreate','roleDelete','roleUpdate','typingStart','typingStop','userUpdate','voiceStateUpdate','warn'
+    'channelCreate','channelDelete','channelPinsUpdate','channelUpdate','debug','error','guildBanAdd','guildBanRemove','guildEmojiCreate','guildEmojiDelete','guildEmojiUpdate','guildMemberAdd','guildMemberAvailable','guildMemberRemove','guildMembersChunk','guildMemberSpeaking','guildMemberUpdate','guildUnavailable','guildUpdate','messageDelete', 'messageUpdate','messageDeleteBulk','presenceUpdate','reconnecting','roleCreate','roleDelete','roleUpdate','typingStart','typingStop','userUpdate','voiceStateUpdate','warn'
   ]
 });
 client.commands = new Collection();
@@ -36,15 +36,15 @@ client.on('message', msg => {
 
   if(!msg.content.startsWith(client.conf.prefix)) return;
 
-  let command = msg.content.replace(client.conf.prefix, '');
-  let commandName = command.split(' ')[0];
-  let params = command.split(' ').slice(1);
+  let input = msg.content.replace(client.conf.prefix, '');
+  let commandName = input.split(' ')[0];
+  let params = input.split(' ').slice(1);
 
-  if(client.commands.has(commandName)) {
-    client.commands.get(commandName).exec(client, msg, params);
-  } else if(client.aliases.has(commandName)) {
-    client.commands.get(client.aliases.get(commandName)).exec(client, msg, params);
-  }
+  let command = client.commands.get(commandName);
+
+  if(!command) command = client.commands.get(client.aliases.get(commandName));
+
+  command.exec(client, msg, params);
 });
 
 client.login(client.conf.token).catch(console.error);
