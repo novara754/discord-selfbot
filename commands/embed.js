@@ -11,7 +11,7 @@ module.exports = {
       color: 3447003,
       author: {
         name: client.user.username,
-        icon_url: client.user.avatarURL
+        icon_url: client.user.avatarURL // eslint-disable-line camelcase
       },
       title: 'This is an embed',
       url: 'http://google.com',
@@ -32,7 +32,7 @@ module.exports = {
       ],
       timestamp: new Date(),
       footer: {
-        icon_url: client.user.avatarURL,
+        icon_url: client.user.avatarURL, // eslint-disable-line camelcase
         text: '©vzwGrey'
       }
     };
