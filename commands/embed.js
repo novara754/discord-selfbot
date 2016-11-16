@@ -13,9 +13,7 @@ module.exports = {
         name: client.user.username,
         icon_url: client.user.avatarURL // eslint-disable-line camelcase
       },
-      title: 'This is an embed',
-      url: 'http://google.com',
-      description: 'This is a test embed to showcase what they look like and what they can do.',
+      description: '\nThis is a test embed to showcase what they look like and what they can do.\n[Code here](https://github.com/vzwGrey/discord-selfbot/blob/master/commands/embed.js)',
       fields: [
         {
           name: 'Fields',
@@ -23,7 +21,7 @@ module.exports = {
         },
         {
           name: 'Masked links',
-          value: 'You can put [masked](http://google.com) links inside of rich embeds.'
+          value: 'You can put [masked](https://github.com/vzwGrey/discord-selfbot/blob/master/commands/embed.js) links inside of rich embeds.'
         },
         {
           name: 'Markdown',
