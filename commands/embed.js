@@ -2,7 +2,7 @@ module.exports = {
   help: {
     name: 'embed',
     desc: 'Displays an example for rich embeds',
-    usage: '<message>',
+    usage: '',
     aliases: []
   },
 
@@ -10,8 +10,8 @@ module.exports = {
     let embed = {
       color: 3447003,
       author: {
-        name: client.user.username,
-        icon_url: client.user.avatarURL // eslint-disable-line camelcase
+        name: msg.author.username,
+        icon_url: msg.author.avatarURL // eslint-disable-line camelcase
       },
       title: 'THIS IS A TITLE',
       url: 'http://example.com', // The url for the title.
@@ -48,7 +48,7 @@ module.exports = {
       },
       timestamp: new Date(),
       footer: {
-        icon_url: client.user.avatarURL, // eslint-disable-line camelcase
+        icon_url: msg.author.avatarURL, // eslint-disable-line camelcase
         text: '©vzwGrey'
       }
     };
