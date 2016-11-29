@@ -15,7 +15,7 @@ module.exports = {
       },
       title: 'THIS IS A TITLE',
       url: 'http://example.com', // The url for the title.
-      description: '\nThis is a test embed to showcase what they look like and what they can do.\n[Code here](https://github.com/vzwGrey/discord-selfbot/blob/master/commands/embed.js)',
+      description: 'This is a test embed to showcase what they look like and what they can do.\n[Code here](https://github.com/vzwGrey/discord-selfbot/blob/master/commands/embed.js)',
       fields: [
         {
           name: 'Fields',
