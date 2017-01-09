@@ -10,7 +10,7 @@ module.exports = {
     let input = params.join(' ');
 
     try {
-      let output = eval(input.replace(/\r?\n|\r/g, ' '));
+      let output = eval(input);
 
       if(typeof output != 'string') {
         output = require('util').inspect(output, { depth: 1 });
